@@ -1,0 +1,15 @@
+digraph {
+	S [label="差 di = xi - yi を求める" shape=box]
+	D01 [label="di は正規分布か？" shape=diamond]
+	D02 [label="検定可能なデータ数か？" shape=diamond]
+	R01 [label="1標本 t 検定" shape=box]
+	R02 [label="Wilcoxon 検定" shape=box]
+	R03 [label="符号検定" shape=box]
+	R04 [label="検定不可" shape=box]
+	S -> D01
+	D01 -> R01 [label=yes]
+	D01 -> D02 [label=no]
+	D02 -> R02 [label=yes]
+	D02 -> R03 [label=yes]
+	D02 -> R04 [label=no]
+}

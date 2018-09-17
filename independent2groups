@@ -1,0 +1,25 @@
+digraph {
+	D01 [label="大標本（母分散既知）か？" shape=diamond]
+	D02 [label="正規分布か？" shape=diamond]
+	D03 [label="等分散か？" shape=diamond]
+	D04 [label="検定可能なデータ数か？" shape=diamond]
+	B01 [label="分散比 F 検定" shape=box]
+	B02 [label="変数変換で正規化" shape=box]
+	R01 [label="正規検定" shape=box]
+	R02 [label="2標本 t 検定" shape=box]
+	R03 [label="t 検定(Welch の方法)" shape=box]
+	R04 [label="Mann-Whitney 検定" shape=box]
+	R05 [label="検定不可" shape=box]
+	D01 -> R01 [label=yes]
+	D01 -> D02 [label=no]
+	D02 -> B01 [label=yes]
+	B01 -> D03
+	D03 -> R02 [label=yes]
+	D03 -> R03 [label=no]
+	D03 -> R04 [label=no]
+	D02 -> B02 [label=no]
+	B02 -> B01
+	D02 -> D04 [label=no]
+	D04 -> R05 [label=no]
+	D04 -> R04 [label=yes]
+}
